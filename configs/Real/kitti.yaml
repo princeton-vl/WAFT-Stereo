@@ -1,0 +1,37 @@
+ALGORITHM: "waft"
+WAFT:
+  MAX_DISP: 800
+  LOSS: ['mixlap_40']
+  FEATURE_ENCODER: 
+    TYPE: "dav2"
+    ARCH: "vitl"
+    LORA_RANK: 8
+    LORA_ALPHA: 16
+  ITERATIVE_MODULE:
+    TASK: ['delta', 'delta', 'delta', 'delta']
+    DELTA_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+    PROP_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+DATASETS:
+  TRAIN: ("kitti_2012_training_all", "kitti_2015_training_all")
+  MUL: (1, 1)
+  CROP_SIZE: [372, 1240]
+  TEST: ("things",)
+TEST:
+  EVAL_PERIOD: 10000
+  EVAL_THRESH: (['1.0', '3.0'],)
+  EVAL_MAX_DISP: [null,]
+  EVAL_ONLY_VALID: (True,)
+SOLVER:
+  RESUME: ""
+  MIX_PRECISION: True
+  NO_RESUME_OPTIMIZER: True
+  IMS_PER_BATCH: 16
+  MAX_ITER: 3000
+  CHECKPOINT_PERIOD: 1000
+  BASE_LR: 0.0001

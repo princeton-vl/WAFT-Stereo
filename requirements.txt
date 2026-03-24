@@ -1,0 +1,29 @@
+# Core deep learning stack.
+# Install a PyTorch build that matches your CUDA/CPU environment if needed.
+torch
+torchvision
+
+# Model and training dependencies.
+timm
+einops
+peft
+wandb
+
+# Config and logging.
+PyYAML
+yacs
+tabulate
+termcolor
+
+# Data loading and image I/O.
+numpy
+Pillow
+opencv-python
+imageio
+h5py
+
+# Visualization.
+matplotlib
+
+# Optional acceleration used by thirdparty/DepthAnythingV2 when available.
+# xformers

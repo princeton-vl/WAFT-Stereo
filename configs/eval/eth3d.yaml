@@ -1,0 +1,28 @@
+ALGORITHM: "waft"
+WAFT:
+  MAX_DISP: 800
+  LOSS: ['mixlap_40']
+  FEATURE_ENCODER: 
+    TYPE: "dav2"
+    ARCH: "vitl"
+    LORA_RANK: 8
+    LORA_ALPHA: 16
+  ITERATIVE_MODULE:
+    TASK: ['delta', 'delta', 'delta', 'delta']
+    DELTA_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+    PROP_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+SOLVER:
+  NO_RESUME_OPTIMIZER: True
+DATASETS:
+  TEST: ("eth3d_nonocc", "eth3d_all")
+  CROP_SIZE: [480, 640]
+TEST:
+  EVAL_THRESH: (['1.0'], ['1.0'],)
+  EVAL_MAX_DISP: [null, null,]
+  EVAL_ONLY_VALID: (True, True,)

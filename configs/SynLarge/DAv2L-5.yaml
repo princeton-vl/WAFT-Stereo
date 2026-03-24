@@ -1,0 +1,36 @@
+ALGORITHM: "waft"
+WAFT:
+  MAX_DISP: 800
+  LOSS: ['mixlap_40']
+  FEATURE_ENCODER: 
+    TYPE: "dav2"
+    ARCH: "vitl"
+    LORA_RANK: 8
+    LORA_ALPHA: 16
+  ITERATIVE_MODULE:
+    TASK: ['delta', 'delta', 'delta', 'delta']
+    DELTA_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+    PROP_ITER:
+      TYPE: "vit"
+      ARCH: "vits"
+      PATCH_SIZE: 8
+DATASETS:
+  TRAIN: ("sceneflow", "tartanair", "crestereo", "fsd", "sintelstereo", "fallingthings", "vkitti2", "unrealstereo4k", "wmgstereo", "carlahighres", "spring", "tartanground")
+  MUL: (1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)
+  CROP_SIZE: [480, 640]
+  TEST: ("things",)
+TEST:
+  EVAL_PERIOD: 50000
+  EVAL_THRESH: (['1.0', '3.0'],)
+  EVAL_MAX_DISP: [null,]
+  EVAL_ONLY_VALID: (True,)
+SOLVER:
+  MIX_PRECISION: True
+  NO_RESUME_OPTIMIZER: True
+  IMS_PER_BATCH: 32
+  MAX_ITER: 400000
+  CHECKPOINT_PERIOD: 10000
+  BASE_LR: 0.0005
