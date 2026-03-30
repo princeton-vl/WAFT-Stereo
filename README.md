@@ -101,10 +101,6 @@ Demos for custom stereo pairs, including disparity, uncertainty, and point cloud
 
 This code is largely adapted from [FoundationStereo](https://github.com/NVlabs/FoundationStereo/blob/master/scripts/run_demo.py). Users may also find it helpful to refer to the original repository for further details.
 
-Demos for custom stereo pairs, including disparity, uncertainty, and point clouds. For high-resolution input (> 1080p), we recommend downsampling the input size by at least 2x for the best performance.
-
-The code is largely borrowed from [FoundationStereo](https://github.com/NVlabs/FoundationStereo/blob/master/scripts/run_demo.py). We recommend the users to also check the original repository.
-
 ```bash
 python demo.py --config-file configs/SynLarge/DAv2L-5.yaml --ckpt ckpts/SynLarge/DAv2L-5.pth
 ```
