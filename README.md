@@ -97,9 +97,7 @@ python profiler.py --config-file configs/SynLarge/DAv2L-5.yaml
 
 ## Visualization
 
-Demos for custom stereo pairs, including disparity, uncertainty, and point cloud visualization. For high-resolution inputs (>1080p), we recommend downsampling the images by at least 2× for optimal performance.
-
-This code is largely adapted from [FoundationStereo](https://github.com/NVlabs/FoundationStereo/blob/master/scripts/run_demo.py). Users may also find it helpful to refer to the original repository for further details.
+Demos for custom stereo pairs, including disparity, uncertainty, and point cloud visualization. For high-resolution inputs (>1080p), we recommend downsampling the images by at least 2× for optimal performance. This code is largely adapted from [FoundationStereo](https://github.com/NVlabs/FoundationStereo/blob/master/scripts/run_demo.py). Please comply with the NVIDIA licence if you plan to use it.
 
 ```bash
 python demo.py --config-file configs/SynLarge/DAv2L-5.yaml --ckpt ckpts/SynLarge/DAv2L-5.pth
