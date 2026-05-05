@@ -106,7 +106,8 @@ if __name__=="__main__":
         "img2": torch.as_tensor(img1).cuda().float()[None].permute(0,3,1,2)
     }
     with torch.no_grad():
-        results_dict = model(input_sample)
+        with torch.autocast(device_type="cuda", dtype=torch.bfloat16, enabled=True):
+            results_dict = model(input_sample)
 
     viz = visualization.Visualizer(img0)
     disp = results_dict['disp_pred'].cpu().numpy().reshape(H, W)
